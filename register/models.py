@@ -1,13 +1,15 @@
 from __future__ import unicode_literals
 from django import forms
 from django.db import models
+from django.forms import ModelForm
 
 # Create your models here
 
 #CHOICES is simply the user's choice for the sex_field
-CHOICES = (('1','Male'),('2','Female'))
+#CHOICES = (('1','Male'),('2','Female'))
 
 #first_name is a text field that allows our user to enter their first name
+'''
 class first_name(models.Model):
 
     first_name_field = models.charField(max_length = 200)
@@ -32,8 +34,10 @@ class sex(models.Model):
 
     sex_field = forms.ChoiceField(widget=forms.RadioSelect, choies = CHOICES)
 
-'''
-class skill(models.Model):
+
+class skill(forms.ModelForm):
+
+    skill_drop_down = forms.ChoiceField(choices =[(x, x) for x in range(1,6)])
 
 
 class buy_options(models.Model):
