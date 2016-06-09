@@ -17,6 +17,10 @@ MALE = 'M'
 FEMALE = "F"
 PREF = "Pref"
 
+IN_CUTTER = "In Cutter"
+OUT_CUTTER = 'Out Cutter'
+SHORT_DISTANCE_HANDLER = 'Short Distance Handler'
+LONG_DISTANCE_HANDLER = 'Long Distanc Handler'
 #Every single dropdown CharField requires tuples.
 
 CHOICES = (
@@ -39,6 +43,13 @@ SEX_CHOICE = (
     (MALE, 'Male'),
     (FEMALE,'Female'),
     (PREF,'Prefer Not to Respond'),
+)
+
+POSITION_CHOICE = (
+    (IN_CUTTER, 'In Cutter'),
+    (OUT_CUTTER, 'Out Cutter'),
+    (SHORT_DISTANCE_HANDLER, 'Short Distance Handler'),
+    (LONG_DISTANCE_HANDLER, 'Long Distance Handler'),
 )
 
 class ShirtOptions(models.Model):
@@ -69,17 +80,17 @@ class Person(models.Model):
     sex = models.CharField(max_length = 100, choices=SEX_CHOICE,)
     skill = models.CharField(max_length = 200, choices=((str(x), x) for x in range(1, 6)), default = 1,)
     shirt_size = models.CharField(max_length = 200,choices = SHIRT_CHOICE,default = 'Small',)
+    position = models.CharField(max_length = 200,choices = POSITION_CHOICE,default = 'In Cutter',)
 
 
 
-
-#PersonForm is simply a ModelForm for the Person class
-class PersonForm(ModelForm):
-
-    #These next two lines will appear as multiple checkboxes
-    shirt_options = forms.ModelMultipleChoiceField(queryset=ShirtOptions.objects.all(), required=False, widget=forms.CheckboxSelectMultiple)
-    frisbee_options = forms.ModelMultipleChoiceField(queryset=FrisbeeOptions.objects.all(), required=False, widget=forms.CheckboxSelectMultiple)
-
-    class Meta:
-        model = Person
-        fields = '__all__'
+# #PersonForm is simply a ModelForm for the Person class
+# class PersonForm(ModelForm):
+#
+#     #These next two lines will appear as multiple checkboxes
+#     shirt_options = forms.ModelMultipleChoiceField(queryset=ShirtOptions.objects.all(), required=False, widget=forms.CheckboxSelectMultiple)
+#     frisbee_options = forms.ModelMultipleChoiceField(queryset=FrisbeeOptions.objects.all(), required=False, widget=forms.CheckboxSelectMultiple)
+#
+#     class Meta:
+#         model = Person
+#         fields = '__all__'
