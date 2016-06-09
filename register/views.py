@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
-import models
-from models import PersonForm, Person
+import forms
+from forms import PersonForm, Person
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
