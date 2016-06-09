@@ -23,9 +23,12 @@ SHORT_DISTANCE_HANDLER = 'Short Distance Handler'
 LONG_DISTANCE_HANDLER = 'Long Distanc Handler'
 #Every single dropdown CharField requires tuples.
 
-CHOICES = (
-    ('1','Male'),
-    ('2','Female'),
+SKILL_CHOICES = (
+    ('1','1,   Amateur'),
+    ('2','2'),
+    ('3','3'),
+    ('4','4'),
+    ('5','5,   Pro'),
 )
 
 BUY_OPTIONS_LIST = (
@@ -78,7 +81,7 @@ class Person(models.Model):
 
     #The following charfields will appear as dropdown boxes
     sex = models.CharField(max_length = 100, choices=SEX_CHOICE,)
-    skill = models.CharField(max_length = 200, choices=((str(x), x) for x in range(1, 6)), default = 1,)
+    skill = models.CharField(max_length = 200, choices= SKILL_CHOICES, default = "1",)
     shirt_size = models.CharField(max_length = 200,choices = SHIRT_CHOICE,default = 'Small',)
     position = models.CharField(max_length = 200,choices = POSITION_CHOICE,default = 'In Cutter',)
 
