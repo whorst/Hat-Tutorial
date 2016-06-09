@@ -1,1 +1,9 @@
-<a href = '{% url "thanks" %}'> CLick here when You've filled out all of the relevant info </a> 
+<!-- This piece of code sends info to the database. Action is what we want to be associated with what's being sent. -->
+<form method="post" action="">
+  <!--Prevents attacks from cross site request forgery scipts -->
+  {% csrf_token %}
+    <table>
+      {{PersonForm}}
+    </table>
+  <input type="submit" value="Submit Form"/>
+</form>
