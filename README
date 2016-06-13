@@ -1,0 +1,28 @@
+Hat Tutorial, a Django Application
+
+
+This application allows multiple users to save and send their information to a
+database. This information will then be used to register the users for a Hat
+Tournament. The user enters this information into a simple form.
+
+Hat_Tutorial/
+    manage.py
+    Hat_Tutorial/
+        __init__.py
+        urls.py
+        wsgi.py
+        settings.py
+    register/
+        __init__.py
+        admin.py
+        apps.py
+        forms.py
+        models.py
+        tests.py
+        views.py
+        urls.py
+        templates/
+            register/
+                home.html
+                reg.html
+                thanks.html
