@@ -55,12 +55,22 @@ POSITION_CHOICE = (
     (LONG_DISTANCE_HANDLER, 'Long Distance Handler'),
 )
 
+
 class ShirtOptions(models.Model):
+    """
+    ShirtOptions helps our ModelForm to render a multi-checkbox form.
+    """
+
     description = models.CharField(max_length=100)
     def __str__(self):
         return self.description
 
+
 class FrisbeeOptions(models.Model):
+    """
+    FrisbeeOptions helps our ModelForm to render a multi-checkbox form.
+    """
+
     description = models.CharField(max_length=300)
     def __str__(self):
         return self.description
@@ -90,13 +100,3 @@ class Person(models.Model):
 
     def __str__(self):
         return('{first} {last}'.format(first=self.first_name, last=self.last_name))
-        # return(' '.join((self.first_name, self.last_name)))
-
-    def valid_phone_number(self):
-        pattern = re.compile('^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$')
-        j = pattern.match(self.phone_number)
-
-        if j:
-            return True
-        else:
-            return False
